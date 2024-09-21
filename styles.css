@@ -1,0 +1,166 @@
+/* Réinitialiser les marges et paddings par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général du corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Permet au header de s'afficher au-dessus de la section */
+    align-items: center;
+    min-height: 100vh; /* Hauteur minimale de la page pour couvrir tout l'écran */
+    background-color: #f5f5f5;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/* Style pour le header */
+header {
+    width: 100%; /* Prend toute la largeur de la page */
+    display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+    justify-content: space-between; /* Met le logo à gauche et les liens à droite */
+    align-items: center; /* Centre verticalement les éléments dans le header */
+    padding: 20px; /* Ajoute de l'espace autour du contenu */
+    background-color: #1576BB;
+    position: fixed; /* Positionne le header en haut de la page */
+    top: 0; /* Fixe le header au haut de la page */
+    left: 0;
+    z-index: 1000; /* Assure que le header est au-dessus des autres éléments */
+}
+
+/* Espace sous le header pour éviter qu'il chevauche le contenu */
+body::before {
+    content: '';
+    display: block;
+    height: 80px; /* Ajuste la hauteur pour correspondre à celle du header */
+}
+
+/* Style pour le logo */
+.logo a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style pour les liens de navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Style pour la section de bienvenue */
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Prend tout l'écran moins la hauteur du header */
+    text-align: center; /* Centre le texte horizontalement */
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%; /* Assure que la section prend toute la largeur de l'écran */
+}
+
+h1 {
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid #333; /* Barre du curseur clignotant */
+    animation: blink-cursor 0.75s step-end infinite; /* Animation de l'effet de texte tapé et du curseur clignotant */
+}
+
+/* Animation de texte tapé */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Animation du curseur clignotant */
+@keyframes blink-cursor {
+    50% { border-color: transparent; }
+}
+
+/* Style pour chaque section avec un trait noir en bas */
+section {
+    width: 100%; /* Assure que chaque section prend toute la largeur de l'écran */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #333; /* Trait noir entre chaque section */
+    margin-bottom: 0; /* Supprime les marges en bas pour que le trait soit aligné */
+}
+
+section:last-of-type {
+    border-bottom: none; /* Supprime le trait après la dernière section */
+}
+
+/* Style pour la section À propos de moi */
+#about {
+    background-color: #f0f0f0;
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Style pour la section Mes projets */
+#projects {
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.project {
+    margin-bottom: 40px;
+}
+
+/* Style pour les images de projets */
+.project-image {
+    width: 80%; /* Définit une largeur fixe pour les images (ajustable selon les besoins) */
+    max-width: 600px; /* Limite la largeur maximale */
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0 auto 10px auto; /* Centre les images horizontalement et ajoute une marge en bas */
+}
+
+/* Style pour la section Contact */
+#contact {
+    background-color: #f0f0f0;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.1rem;
+}
