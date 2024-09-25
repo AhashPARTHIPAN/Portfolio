@@ -1,5 +1,5 @@
 // Texte à afficher dans l'effet de typewriting
-const text = "Bonjour, je m'appelle Ahash";
+const text = "Bonjour, je m'appelle Ahash PARTHIPAN";
 let index = 0;
 const typingSpeed = 100; // Vitesse de frappe
 
