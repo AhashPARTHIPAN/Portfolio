@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const crawl = document.querySelector('.crawl');
+  crawl.addEventListener('animationend', () => {
+    crawl.style.visibility = 'hidden';
+    crawl.style.animation = 'none';
+    crawl.offsetHeight;
+    setTimeout(() => {
+      crawl.style.visibility = 'visible';
+      crawl.style.animation = 'crawl 30s linear';
+    }, 100);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   const starWars = document.querySelector('.star-wars');
   const projects = document.getElementById('projects');
   const crawl = document.querySelector('.crawl');
@@ -16,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener('scroll', () => {
     const projectsTop = projects.getBoundingClientRect().top;
-    const starWarsRect = starWars.getBoundingClientRect();
 
     if (projectsTop < window.innerHeight) {
       // Applique le fade d'abord
@@ -29,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
           crawlReset = true;
         }, 800);
       }
-    } else if (starWarsRect.bottom > 0 && starWarsRect.top < window.innerHeight) {
+    } else {
       // Section Star Wars visible : retire le fade et remet le crawl au début
       starWars.classList.remove('fade');
       if (crawlReset) {
@@ -46,66 +58,77 @@ document.addEventListener("DOMContentLoaded", () => {
   // Vérifie aussi au chargement et au redimensionnement
   updateCrawlVisibility();
   window.addEventListener('resize', updateCrawlVisibility);
+});
 
-  // Gère la fin de l'animation
-  crawl.addEventListener('animationend', () => {
-    crawl.style.visibility = 'hidden';
-    crawl.style.animation = 'none';
-    crawl.offsetHeight;
-    setTimeout(() => {
-      crawl.style.visibility = 'visible';
-      crawl.style.animation = 'crawl 30s linear';
-    }, 100);
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.getElementById('navbar-logo');
+  if (logo) {
+    logo.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Applique la classe d'animation à chaque section
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('section-fade-in');
+  });
+  // Applique la classe d'animation à chaque projet
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.classList.add('section-fade-in');
   });
 
-  const sections = document.querySelectorAll('section');
-  const appearOnScroll = () => {
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 80) {
-        section.classList.add('visible');
+  function revealSectionsOnScroll() {
+    document.querySelectorAll('.section-fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80 && rect.bottom > 40) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
       }
-    });
-  };
-
-  // Ajoute la classe d'animation à chaque section au départ
-  sections.forEach(section => section.classList.add('section-appear'));
-  window.addEventListener('scroll', appearOnScroll);
-  window.addEventListener('resize', appearOnScroll);
-  appearOnScroll();
-
-  // Responsive Navbar Toggle
-  const navbarToggle = document.querySelector('.navbar-toggle');
-  const navbarMenu = document.getElementById('navbar-menu');
-
-  if (navbarToggle && navbarMenu) {
-    navbarToggle.addEventListener('click', () => {
-      const expanded = navbarToggle.getAttribute('aria-expanded') === 'true';
-      navbarToggle.setAttribute('aria-expanded', !expanded);
-      navbarMenu.classList.toggle('open');
-    });
-    // Close menu when a link is clicked (mobile UX)
-    navbarMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navbarMenu.classList.remove('open');
-        navbarToggle.setAttribute('aria-expanded', 'false');
-      });
     });
   }
 
-  // Smooth scroll for anchor links
-  const navLinks = document.querySelectorAll('.navbar-menu a[href^="#"]');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 60, // offset for fixed navbar
-          behavior: 'smooth'
-        });
+  window.addEventListener('scroll', revealSectionsOnScroll);
+  window.addEventListener('resize', revealSectionsOnScroll);
+  revealSectionsOnScroll();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Applique la classe d'animation à chaque section
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('section-fade-in');
+  });
+  // Applique la classe d'animation à chaque projet (gauche/droite en alternance)
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.classList.add(i % 2 === 0 ? 'slide-in-left' : 'slide-in-right');
+  });
+
+  function revealSectionsOnScroll() {
+    // Sections
+    document.querySelectorAll('.section-fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80 && rect.bottom > 40) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
       }
     });
-  });
+    // Projets
+    document.querySelectorAll('.project-card').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80 && rect.bottom > 40) {
+        card.classList.add('visible');
+      } else {
+        card.classList.remove('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealSectionsOnScroll);
+  window.addEventListener('resize', revealSectionsOnScroll);
+  revealSectionsOnScroll();
 });

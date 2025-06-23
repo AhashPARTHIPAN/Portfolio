@@ -9,36 +9,54 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.classList.contains('github-link')) return;
+      
+      // Get the title
       modalTitle.textContent = card.querySelector('h3').textContent;
-      const desc = card.querySelector('p');
-      modalDescription.textContent = desc ? desc.textContent : '';
+      
+      // Get all paragraphs and combine them for description
+      const paragraphs = card.querySelectorAll('p');
+      let description = '';
+      paragraphs.forEach((p, index) => {
+        if (index < 2) { // Take first two paragraphs
+          description += p.textContent + '<br><br>';
+        }
+      });
+      modalDescription.innerHTML = description;
+      
+      // Get the details
       const details = card.querySelector('.project-details');
       modalDetails.innerHTML = details ? details.innerHTML : '';
+      
+      // Show modal with smooth animation
       modal.classList.add('show');
-      modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
+      
+      // Add a small delay to ensure smooth animation
+      setTimeout(() => {
+        modal.style.display = 'flex';
+      }, 10);
     });
   });
 
-  closeBtn.addEventListener('click', () => {
+  function closeModal() {
     modal.classList.remove('show');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  });
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300); // Wait for animation to complete
+  }
+
+  closeBtn.addEventListener('click', closeModal);
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
     }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") {
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
     }
   });
 });

@@ -7,25 +7,24 @@
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Ajoute dans le <head> -->
   <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
-  <title>Portfolio Big Ahash</title>
+  <title>Portfolio Ahash</title>
 </head>
 <body>
-  <nav class="navbar" aria-label="Navigation principale">
-    <div class="navbar-container">
-      <span class="navbar-logo">Big Ahash</span>
-      <button class="navbar-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navbar-menu">
-        <span class="navbar-toggle-icon"></span>
-      </button>
-      <ul class="navbar-menu" id="navbar-menu">
-        <li><a href="#presentation" aria-label="Aller à la présentation">Présentation</a></li>
-        <li><a href="#projects" aria-label="Aller aux projets">Projets</a></li>
-        <li><a href="#about" aria-label="Aller à propos">À propos</a></li>
-        <li><a href="#contact" aria-label="Aller au contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
   <div id="tsparticles"></div>
+
+
+  <div class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo" id="navbar-logo">Ahash</a>
+      <ul class="navbar-menu">
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contacter-moi !</a></li>
+      </ul>
+    </div>
+  </div>
+
 
   <section>
     <section class="star-wars" aria-label="Présentation façon Star Wars">
@@ -155,7 +154,7 @@
 
     <div class="about-page">
       <h3>Découverte du stage</h3>
-      <p>Mon stage, je l'ai effectué au sein même de l'IUT, dans le service CRIT Info, encadré par F. Butelle. J'ai eu pour mission de développer un site web complet pour le service de reprographie. Même si ce n'est pas le domaine que je préfère, j'ai beaucoup appris, notamment sur la communication professionnelle, la gestion d'un projet concret, et le rapport avec un "client" interne. Cette expérience a renforcé ma certitude : je veux travailler dans l'informatique, mais pas dans le web. Et c'est une conclusion précieuse à tirer d'un stage.</p>
+      <p>Mon stage, je l'ai effectué au sein même de l'IUT, dans le service CRIT Info, encadré par F. Butelle. J'ai eu pour mission de développer un site web complet pour le service de reprographie. Même si ce n'est pas le domaine que je préfère, j'ai beaucoup appris, notamment sur la communication professionnelle, la gestion d'un projet concret, et le rapport avec un “client” interne. Cette expérience a renforcé ma certitude : je veux travailler dans l'informatique, mais pas dans le web. Et c'est une conclusion précieuse à tirer d'un stage.</p>
     </div>
 
     <div class="about-page">
@@ -174,14 +173,31 @@
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+
+<section id="contact" class="contact-section">
+  <h2>Contacte-moi</h2>
   <div class="contact-container">
-    <p>Vous pouvez me contacter à l'adresse suivante :</p>
-    <p><a href="mailto:ahash.parthipan@gmail.com" aria-label="Envoyer un email">ahash.parthipan@gmail.com</a></p>
-    <!-- Ajoutez vos réseaux sociaux ici si souhaité -->
+    <form class="contact-form" autocomplete="off">
+      <label for="contact-name">Nom</label>
+      <input type="text" id="contact-name" name="name" required placeholder="Votre nom">
+
+      <label for="contact-email">Email</label>
+      <input type="email" id="contact-email" name="email" required placeholder="Votre email">
+
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" rows="5" required placeholder="Votre message"></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <div class="contact-infos">
+      <p>Ou écriver-moi directement à :</p>
+      <a href="mailto:ahashxparthipan@gmail.com" class="contact-mail">ahashxparthipan@gmail.com</a>
+    </div>
   </div>
 </section>
+
+  
+
 
   <!-- Version stable qui marche (1.18.11) -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.11/dist/tsparticles.min.js"></script>
