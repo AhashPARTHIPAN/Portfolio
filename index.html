@@ -10,6 +10,20 @@
   <title>Portfolio Big Ahash</title>
 </head>
 <body>
+  <nav class="navbar" aria-label="Navigation principale">
+    <div class="navbar-container">
+      <span class="navbar-logo">Big Ahash</span>
+      <button class="navbar-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span class="navbar-toggle-icon"></span>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="#presentation" aria-label="Aller à la présentation">Présentation</a></li>
+        <li><a href="#projects" aria-label="Aller aux projets">Projets</a></li>
+        <li><a href="#about" aria-label="Aller à propos">À propos</a></li>
+        <li><a href="#contact" aria-label="Aller au contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div id="tsparticles"></div>
 
@@ -141,7 +155,7 @@
 
     <div class="about-page">
       <h3>Découverte du stage</h3>
-      <p>Mon stage, je l'ai effectué au sein même de l'IUT, dans le service CRIT Info, encadré par F. Butelle. J'ai eu pour mission de développer un site web complet pour le service de reprographie. Même si ce n'est pas le domaine que je préfère, j'ai beaucoup appris, notamment sur la communication professionnelle, la gestion d'un projet concret, et le rapport avec un “client” interne. Cette expérience a renforcé ma certitude : je veux travailler dans l'informatique, mais pas dans le web. Et c'est une conclusion précieuse à tirer d'un stage.</p>
+      <p>Mon stage, je l'ai effectué au sein même de l'IUT, dans le service CRIT Info, encadré par F. Butelle. J'ai eu pour mission de développer un site web complet pour le service de reprographie. Même si ce n'est pas le domaine que je préfère, j'ai beaucoup appris, notamment sur la communication professionnelle, la gestion d'un projet concret, et le rapport avec un "client" interne. Cette expérience a renforcé ma certitude : je veux travailler dans l'informatique, mais pas dans le web. Et c'est une conclusion précieuse à tirer d'un stage.</p>
     </div>
 
     <div class="about-page">
@@ -151,10 +165,23 @@
 
     <button id="next-about" aria-label="Page suivante" style="margin-top:32px;font-size:2em;background:none;border:none;color:#feda4a;cursor:pointer;">&#8594;</button>
   </div>
+
+  <div class="puzzle-container">
+    <div class="puzzle-9" id="puzzle-9">
+      <!-- Les pièces seront générées par JS -->
+    </div>
+    <button id="solve-puzzle-btn" style="margin-left:32px;padding:14px 28px;font-size:1.1em;background:#222;border:2px solid #feda4a;color:#feda4a;border-radius:12px;cursor:pointer;box-shadow:0 0 12px #feda4a55;">Voir l'image complète</button>
+  </div>
 </section>
 
-  
-
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-container">
+    <p>Vous pouvez me contacter à l'adresse suivante :</p>
+    <p><a href="mailto:ahash.parthipan@gmail.com" aria-label="Envoyer un email">ahash.parthipan@gmail.com</a></p>
+    <!-- Ajoutez vos réseaux sociaux ici si souhaité -->
+  </div>
+</section>
 
   <!-- Version stable qui marche (1.18.11) -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.11/dist/tsparticles.min.js"></script>
@@ -164,5 +191,6 @@
   <script src="js/script_laserSound.js"></script>
   <script src="js/script_pagination_about.js"></script>
   <script src="js/script_pop_up_projects.js"></script>
+  <script src="js/script_puzzle.js"></script>
 </body>
 </html>
