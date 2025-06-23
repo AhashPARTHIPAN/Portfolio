@@ -132,3 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('resize', revealSectionsOnScroll);
   revealSectionsOnScroll();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu = document.querySelector('.navbar-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+    // Ferme le menu quand on clique sur un lien
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
+    });
+  }
+});
