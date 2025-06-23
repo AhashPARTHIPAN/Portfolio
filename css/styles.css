@@ -176,9 +176,9 @@ section {
 }
 
 .project-card p {
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.6;
-  color: #feda4a;
+  color: #ffe57f;
   margin: 16px 0;
 }
 
@@ -256,7 +256,7 @@ section {
 
 #modal-details,
 .modal-details {
-  font-size: 1.35em;
+  font-size: 1.5em;
   line-height: 2;
   color: #fffbe6;
   margin: 24px 0 0 0;
@@ -300,7 +300,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #feda4a;
+  color: #ffff66;
   font-size: 2.8em;
   margin-bottom: 40px;
   letter-spacing: 2.5px;
@@ -336,25 +336,7 @@ section {
   transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s;
 }
 
-.about-container p {
-  font-size: 1.4em;
-  line-height: 2.1;
-  color: #e0d7b8;
-  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
-  margin: 0 auto 18px auto;
-  max-width: 900px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
 
-.about-container p.active {
-  display: block;
-  opacity: 1;
-  transition: opacity 0.4s;
-}
 
 .about-container ul,
 .project-details ul {
@@ -367,6 +349,58 @@ section {
   box-shadow: 0 0 24px #feda4a, 0 0 80px #000 inset;
   background-color: #111;
   transform: translateY(-5px) scale(1.03);
+}
+
+.about-page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  margin-bottom: 18px;
+}
+.about-page.active {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+.about-page h3 {
+  color: #feda4a;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
+}
+.about-page p {
+  font-size: 1.4em; 
+  color: #ffe57f;
+  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
+  line-height: 2;
+  margin-bottom: 0;
+}
+
+
+/* ajout du scintillement autour des div */
+
+@keyframes yellow-glow {
+  0% {
+    box-shadow: 0 0 18px #feda4a, 0 0 40px #000 inset, 0 0 0px #fff700;
+    border-color: #feda4a;
+  }
+  50% {
+    box-shadow: 0 0 36px #fff700cc, 0 0 60px #000 inset, 0 0 16px #fff700;
+    border-color: #fff700;
+  }
+  100% {
+    box-shadow: 0 0 18px #feda4a, 0 0 40px #000 inset, 0 0 0px #fff700;
+    border-color: #feda4a;
+  }
+}
+
+.about-container:hover,
+.about-container:focus-within,
+.project-card:hover,
+.project-card:focus,
+.modal-content:hover,
+.modal-content:focus-within {
+  animation: yellow-glow 1.2s ease-in-out infinite;
 }
 
 /* Pour le responsive */

@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const crawl = document.querySelector('.crawl');
   let crawlReset = false;
 
+  function updateCrawlVisibility() {
+    const starWarsRect = starWars.getBoundingClientRect();
+    // Si la section Star Wars n'est pas visible à l'écran, on cache le texte
+    if (starWarsRect.bottom <= 0 || starWarsRect.top >= window.innerHeight) {
+      crawl.style.visibility = 'hidden';
+    } else {
+      crawl.style.visibility = 'visible';
+    }
+  }
+
   window.addEventListener('scroll', () => {
     const projectsTop = projects.getBoundingClientRect().top;
 
@@ -42,5 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         crawlReset = false;
       }
     }
+    updateCrawlVisibility();
   });
+
+  // Vérifie aussi au chargement et au redimensionnement
+  updateCrawlVisibility();
+  window.addEventListener('resize', updateCrawlVisibility);
 });

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const aboutParas = document.querySelectorAll('#about .about-container p');
+  const aboutPages = document.querySelectorAll('#about .about-container .about-page');
   const nextBtn = document.getElementById('next-about');
 
   // Création du bouton précédent
@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let current = 0;
 
   function showPage(idx) {
-    aboutParas.forEach((p, i) => {
+    aboutPages.forEach((p, i) => {
       p.classList.toggle('active', i === idx);
     });
     prevBtn.style.display = (idx === 0) ? 'none' : '';
-    nextBtn.style.display = (idx === aboutParas.length - 1) ? 'none' : '';
+    nextBtn.style.display = (idx === aboutPages.length - 1) ? 'none' : '';
   }
 
   nextBtn.addEventListener('click', () => {
-    if (current < aboutParas.length - 1) {
+    if (current < aboutPages.length - 1) {
       current++;
       showPage(current);
     }
