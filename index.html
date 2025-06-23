@@ -1,82 +1,151 @@
 <!DOCTYPE html>
 <html lang="fr">
-    
-    <head>
-        <title>Ahash PARTHIPAN</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Ajoute dans le <head> -->
+  <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+  <title>Portfolio Big Ahash</title>
+</head>
+<body>
 
-    <body>
-        
-        <header>
-            <div class="logo"> <!-- Contient le logo -->
-                <a href="#">MonLogo</a>
-            </div>
-
-            <nav> <!-- Contient les liens de navigation -->
-                <ul>
-                    <!-- Chaque lien pointe vers une section de la page -->
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#projects">Mes projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="welcome-section">
-            <h1 id="typing-text"></h1> <!-- L'élément où le texte sera "tapé" -->
-        </section>
-    
-        <script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+  <section>
+    <div id="tsparticles"></div>
 
 
-        <!-- Sections de la page -->
-        <section id="about">
+    <section class="star-wars" aria-label="Présentation façon Star Wars">
+      <div class="crawl">
+        <div class="title">
+          <p>Bienvenue sur mon Portfolio !</p>
+        </div>
+        <br>
+        <br>
+        <p>Moi, c'est Ahash PARTHIPAN.</p>
+        <br>
+        <p>Je suis un étudiant en deuxième année de BUT Informatique à l'IUT de Villetaneuse.</p>
+        <br>
+        <p>Ma passion, c'est la cybersécurité.</p>
+        <br>
+        <p>C'est ce qui me passionne depuis le début, depuis les films qui m'ont fait découvrir le monde fascinant des failles réseaux et de la sécurité informatique.</p>
+        <br>
+        <p>Je suis quelqu'un de curieux, rigoureux et j'aime apprendre par moi-même.</p>
+        <br>
+        <p>Je me débrouille bien en autonomie, et quand un sujet me passionne, je peux y passer des heures !</p>
+        <br>
+        <p>Sur ce site, vous pourrez en apprendre plus sur moi mais aussi voir les différents projets que j'ai pu réaliser !</p>
+      </div>
+    </section>
+  </section>
 
-            <h2>À propos de moi</h2>
+  <section id="projects">
+  <h2>Mes Projets</h2>
+  <div class="projects-container">
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam est purus, aliquam eget quam a, pulvinar aliquet sapien. 
-                Quisque ac tellus sed purus maximus placerat. Quisque eleifend in nisl ut elementum. Aenean laoreet ac orci eget hendrerit. 
-                In non auctor dolor. Vestibulum id semper tellus. Fusce sit amet diam ante. Nam tristique consectetur lorem, at rutrum dui rutrum in. 
-                Pellentesque viverra mauris ornare, eleifend sem sit amet, pulvinar est. Aliquam sed tellus sed odio laoreet feugiat et sed velit. 
-                Nullam lectus enim, ullamcorper et mattis a, tristique a massa. In cursus sapien a arcu fringilla, sit amet egestas tortor tempus. 
-                Phasellus placerat consequat ligula, eget maximus dui fringilla non. Donec tempor ante sit amet convallis imperdiet.
-            </p>
 
-        </section>
+    <div class="project-card">
+      <h3>SAE 3.01 : Développement d'une application</h3>
+      <p>Conception d'un site web pour gérer la collection de jeux de société de l'Université Sorbonne Paris Nord.</p>
+      <p>Technologies utilisées : HTML, CSS, JavaScript, PHP (MVC), SQL, Git, Python</p>
+      <a href="https://github.com/AhashPARTHIPAN/SAE3.01-Developpement-d-une-application" target="_blank" class="github-link">Voir sur GitHub</a>
+      <div class="project-details" style="display: none;">
+        <h4>Compétences mobilisées :</h4>
+        <ul>
+          <li>Réaliser: développer une application web de A à Z, en respectant des besoins concrets.</li>
+          <li>Collaborer : travailler en groupe, s'adapter aux autres, apprendre à bien communiquer.</li>
+          <li>Conduire un projet: organiser les étapes, se répartir les tâches, livrer dans les temps.</li>
+          <li>Gérer : concevoir et utiliser une base de données pour gérer les jeux, les emprunts, les utilisateurs.</li>
+        </ul>
+      </div>
+    </div>
 
-        <section id="projects">
+    <div class="project-card">
+      <h3>SAE 4.01 : Développement d'une application complexte</h3>
+      <p>Reprendre et améliorer le site web réalisé en SAÉ 3.01 : ajout de nouvelles fonctionnalités, refonte du style, optimisations.</p>
+      <p>Technologies utilisées : HTML, CSS (TailWind CSS), JavaScript, PHP (MVC), SQL, Git (GitFlow), Python</p>
+      <a href="https://github.com/AhashPARTHIPAN/SAE4.01-Developpement-d-une-application" target="_blank" class="github-link">Voir sur GitHub</a>
+      <div class="project-details" style="display: none;">
+        <h4>Compétences mobilisées :</h4>
+        <ul>
+          <li>Réaliser: faire évoluer une application existante en ajoutant des fonctions utiles.</li>
+          <li>Collaborer : mieux communiquer et s'organiser après une première version du projet.</li>
+          <li>Conduire un projet: améliorer la gestion du temps, anticiper les besoins.</li>
+          <li>Gérer/Optimiser : rendre l'application plus claire, plus esthétique, plus fluide.</li>
+        </ul>
+      </div>
+    </div>
 
-            <h2>Mes projets</h2>
 
-            <div class="project">
-                <div class="project-image"><img ></div>
-                <p>Description du Projet 1 à ajouter ici.</p>
-            </div>
+    <div class="project-card">
+      <h3>SAE 2.03 : Installation de services réseau</h3>
+      <p>Préparer un serveur pour un client en installant et configurant des services réseau, comme en entreprise.</p>
+      <p>Technologies/Outils utilisées : Linux, services réseau, configuration système, rédaction de compte-rendus techniques ; Linux, Apache, MariaDB, PHP (LAMP)</p>
+      <div class="project-details" style="display: none;">
+        <h4>Compétences mobilisées :</h4>
+        <ul>
+          <li>Administrer : mise en place d’un environnement réseau stable et fonctionnel sous Linux.</li>
+          <li>Configurer  : installation et paramétrage d’un OS, de services, et des outils réseau.</li>
+          <li>Communiquer techniquement : rédaction d'un compte-rendu.</li>
+        </ul>
+      </div>
+    </div>
 
-            <div class="project">
-                <div class="project-image">Image du Projet 2</div>
-                <p>Description du Projet 2 à ajouter ici.</p>
-            </div>
+    <div class="project-card">
+      <h3>SAE 2.01 : Développement d'une application (Calculatrice Java)</h3>
+      <p>Créer une application de calculatrice en Java, en partant d'une modélisation UML.</p>
+      <p>Technologies utilisées : Java, UML</p>
+      <a href="https://github.com/AhashPARTHIPAN/SAE_R201-Calculatrice_Java" target="_blank" class="github-link">Voir sur GitHub</a>
+      <div class="project-details" style="display: none;">
+        <h4>Compétences mobilisées :</h4>
+        <ul>
+          <li>Développer : transformer une conception théorique (UML) en une application fonctionnelle.</li>
+          <li>Modéliser  : apprendre à structurer un programme en amont pour éviter les erreurs de logique.</li>
+          <li>Réaliser : travailler en deux temps (modélisation / implémentation).</li>
+        </ul>
+      </div>
+    </div>
 
-            <div class="project">
-                <div class="project-image">Image du Projet 3</div>
-                <p>Description du Projet 3 à ajouter ici.</p>
-            </div>
+  </div>
 
-        </section>
+  <!-- Modal pour les détails du projet -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+      <div id="modal-details"></div>
+    </div>
+  </div>
+</section>
 
-        <section id="contact">
+  <section id="about">
+    <h2>À propos de moi</h2>
+    <div class="about-container">
+      <p>Quand je suis entré en BUT Informatique à l'IUT de Villetaneuse, je savais déjà ce que je voulais faire : m'orienter vers la cybersécurité. Ce n'est pas un domaine que j'ai découvert sur le tard, c'est une passion qui me suit depuis longtemps. J'ai toujours été intrigué par les failles réseaux, les vulnérabilités, la logique derrière les attaques et les défenses. Ce goût m'est venu notamment grâce à certains films qui m'ont marqué et ont éveillé ma curiosité.</p>
 
-            <h2>Contact</h2>
+      <p>En BUT2, j'ai gagné en maturité. J'ai réalisé que travailler en groupe demandait bien plus qu'une simple répartition des tâches. La compétence "Conduire un projet" m'a particulièrement marqué : j'y ai appris à organiser, planifier, gérer, et ça m'a servi dans beaucoup d'autres contextes. J'ai aussi réussi à surmonter une difficulté personnelle : la prise de parole. Grâce aux oraux, aux cours de communication et aux travaux de groupe, j'ai gagné en aisance à l'oral. Aujourd'hui, même si ce n'est pas encore parfait, je suis capable de m'exprimer clairement dans un cadre professionnel.</p>
 
-            <p>Vous pouvez me contacter par email à : <a href="ahashxparthipan@gmail.com">ahashxparthipan@gmail.com</a></p>
+      <p>En BUT3, je me sens plus à l'aise dans mes compétences techniques. Je sais m'adapter, chercher des solutions, travailler seul ou à plusieurs. J'ai encore une petite faiblesse dans les compétences plus transversales, mais je les comprends mieux et je continue de les travailler. Ce que ce parcours m'a surtout confirmé, c'est que je ne suis pas fait pour le développement web. Je respecte ce domaine, mais il ne me stimule pas autant que la cybersécurité. Et ce constat n'est pas négatif, au contraire : il a renforcé ma motivation à poursuivre dans une voie qui me correspond vraiment.</p>
 
-        </section>
+      <p>Mon stage, je l'ai effectué au sein même de l'IUT, dans le service CRIT Info, encadré par F. Butelle. J'ai eu pour mission de développer un site web complet pour le service de reprographie. Même si ce n'est pas le domaine que je préfère, j'ai beaucoup appris, notamment sur la communication professionnelle, la gestion d'un projet concret, et le rapport avec un “client” interne. Cette expérience a renforcé ma certitude : je veux travailler dans l'informatique, mais pas dans le web. Et c'est une conclusion précieuse à tirer d'un stage.</p>
 
-    </body>
+      <p>Aujourd'hui, je suis toujours aussi curieux, toujours aussi motivé, et encore plus clair sur ce que je veux : continuer mes études dans la cybersécurité après le BUT, pour rejoindre un secteur qui me passionne, me challenge, et me permet de combiner logique, stratégie, et utilité réelle.</p>
 
+      <button id="next-about" aria-label="Page suivante" style="margin-top:32px;font-size:2em;background:none;border:none;color:#feda4a;cursor:pointer;">&#8594;</button>
+    </div>
+  </section>
+
+  
+
+
+  <!-- Version stable qui marche (1.18.11) -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.11/dist/tsparticles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-plugin-emitters@2.6.0/tsparticles.plugin.emitters.min.js"></script>
+  <script src="js/scriptParticules.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/script_laserSound.js"></script>
+  <script src="js/script_pagination_about.js"></script>
+  <script src="js/script_pop_up_projects.js"></script>
+</body>
 </html>
