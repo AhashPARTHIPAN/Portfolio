@@ -721,3 +721,79 @@ h2, .star-wars, .project-card, .about-container, .about-photo, .navbar, .navbar-
 .about-photo {
   box-shadow: 0 1.5px 6px #d4af3722, 0 1px 4px #0004 !important;
 }
+
+.navbar {
+  width: 100%;
+  background: rgba(20, 20, 30, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1.5px solid #d4af3733;
+  box-shadow: 0 1px 6px #0006;
+  color: #d4af37;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1.5em;
+}
+.navbar-logo {
+  font-family: 'Pathway Gothic One', Arial, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: #d4af37;
+  letter-spacing: 2px;
+  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
+}
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu li a {
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: relative;
+}
+.navbar-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(-50%);
+}
+.navbar-menu li a:hover::after {
+  width: 100%;
+}
+@media (max-width: 800px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5em 0.8em;
+  }
+  .navbar-menu {
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+  }
+  .navbar-menu li a {
+    padding: 12px 0;
+    width: 100%;
+    display: block;
+  }
+}
