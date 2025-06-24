@@ -11,84 +11,6 @@ body {
   padding-top: 64px; /* To prevent content from being hidden under navbar */
 }
 
-
-
-.navbar {
-  width: 100%;
-  background: rgba(20, 20, 30, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1.5px solid #d4af3733;
-  box-shadow: 0 1px 6px #0006;
-  color: #d4af37;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em 1.5em;
-}
-.navbar-logo {
-  font-family: 'Pathway Gothic One', Arial, sans-serif;
-  font-size: 2em;
-  font-weight: bold;
-  color: #d4af37;
-  letter-spacing: 2px;
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
-}
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 2em;
-  margin: 0;
-  padding: 0;
-}
-.navbar-menu li a {
-  color: #d4af37;
-  text-decoration: none;
-  font-size: 1.1em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  padding: 8px 16px;
-  border-radius: 6px;
-  position: relative;
-}
-.navbar-menu li a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translateX(-50%);
-}
-.navbar-menu li a:hover::after {
-  width: 100%;
-}
-@media (max-width: 800px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5em 0.8em;
-  }
-  .navbar-menu {
-    flex-direction: column;
-    gap: 0.5em;
-    width: 100%;
-  }
-  .navbar-menu li a {
-    padding: 12px 0;
-    width: 100%;
-    display: block;
-  }
-}
-
 /* Ajoute à la fin de styles.css */
 h2 {
   display: flex;
@@ -96,14 +18,14 @@ h2 {
   justify-content: center;
   border: none; /* retire la bordure autour du titre */
   background: transparent;
-  color: #d4af37;
+  color: #feda4a;
   font-size: 2.2em;
   font-weight: bold;
   margin: 40px 0 40px 0;
   padding: 0 24px;
   position: relative;
   z-index: 1;
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
+  text-shadow: 0 0 10px #feda4a, 0 0 20px #000;
 }
 
 h2::before,
@@ -111,8 +33,8 @@ h2::after {
   content: "";
   flex: 1 1 0;
   height: 3px;
-  background: #d4af37;
-  box-shadow: 0 0 8px #d4af3788;
+  background: #feda4a;
+  box-shadow: 0 0 8px #feda4a88;
   margin: 0 18px;
   border-radius: 2px;
 }
@@ -153,18 +75,6 @@ section {
   transform: translateX(0);
 }
 
-.section-fade-in {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s cubic-bezier(.4,1.2,.4,1), transform 0.8s cubic-bezier(.4,1.2,.4,1);
-  will-change: opacity, transform;
-}
-
-.section-fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 /*pour l'effet star wars un peu*/
 
@@ -201,7 +111,6 @@ section {
   top: 0;
   transform-origin: 50% 100%;
   animation: crawl 30s linear;
-  visibility: hidden; /* Start hidden, controlled by JS */
 }
 
 .crawl > .title {
@@ -217,7 +126,7 @@ section {
 @keyframes crawl {
   0% {
     top: 1000px;
-    transform: rotateX(20deg) translateZ(0);
+    transform: rotateX(20deg)  translateZ(0);
   }
   100% { 
     top: -5250px;
@@ -232,6 +141,13 @@ section {
   color: white;
   text-align: center;
   transition: opacity 1.2s;
+}
+
+#projects h2 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  color: #ffff66;
+  text-shadow: 0 0 10px #ffff66;
 }
 
 #projects h2 {
@@ -255,152 +171,95 @@ section {
 }
 
 .project-card {
-  border: 2.5px solid #d4af37;
+  border: 2.5px solid #feda4a;
   border-radius: 18px;
   padding: 32px 24px 24px 24px;
-  color: #e6c547;
+  color: #ffe066;
   box-shadow: 0 1px 4px #0004 !important;
   text-align: center;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: box-shadow 0.3s, transform 0.3s;
   cursor: pointer;
   margin-bottom: 24px;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  transform: translateY(0);
 }
 
 .project-card.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.project-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
+.project-card:hover, .project-card:focus {
+  box-shadow: 0 0 24px #feda4a, 0 0 80px #000 inset;
   background-color: #111;
+  transform: translateY(-5px) scale(1.03);
 }
 
 .project-card p {
   font-size: 1.3em;
   line-height: 1.6;
-  color: #f0d675;
+  color: #ffe57f;
   margin: 16px 0;
-}
-
-.project-card.slide-in-left {
-  opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-.project-card.slide-in-right {
-  opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-.project-card.visible {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .github-link {
   display: inline-block;
   margin-top: 18px;
-  color: #d4af37;
+  color: #feda4a;
   background: #222;
-  border: 1.5px solid #d4af37;
+  border: 1.5px solid #feda4a;
   border-radius: 8px;
   padding: 6px 18px;
   text-decoration: none;
   font-size: 1.1em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 1px 3px #0004 !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.github-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.github-link:hover::before {
-  left: 100%;
+  transition: background 0.2s, color 0.2s;
 }
 
 .github-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+  background: #feda4a;
+  color: #111;
 }
 
-/* Modal styles - with smooth animations */
+/* Modal styles */
 .modal {
   display: none;
   position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0);
-  padding: 20px;
-  box-sizing: border-box;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  transition: background 0.3s ease-in-out;
 }
-
-.modal.show {
-  display: flex !important;
-  background: rgba(0,0,0,0.8);
-}
-
 .modal-content {
-  position: relative;
   background: #111;
-  border: 2.5px solid #d4af37;
+  border: 2.5px solid #feda4a;
   border-radius: 22px;
-  box-shadow: 0 0 32px #d4af3733, 0 0 120px #000 inset;
-  color: #e6c547;
+  box-shadow: 0 0 32px #feda4a33, 0 0 120px #000 inset;
+  color: #ffe066;
   padding: 48px 48px;
   max-width: 900px;
-  width: 90vw;
-  max-height: 80vh;
-  overflow-y: auto;
+  width: 95vw;
   text-align: center;
-  opacity: 0;
-  transform: scale(0.8) translateY(20px);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.modal.show .modal-content {
-  opacity: 1;
-  transform: scale(1) translateY(0);
+  position: relative;
 }
 
 .modal-content h3,
 #modal-title {
   font-size: 2.2em;
-  color: #d4af37;
+  color: #feda4a;
   margin-bottom: 24px;
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
-  animation: fadeInUp 0.6s ease-out forwards;
+  text-shadow: 0 0 10px #feda4a, 0 0 20px #000;
 }
 
 .modal-content p,
 #modal-description {
   font-size: 1.5em;
   line-height: 1.8;
-  color: #e6c547;
+  color: #ffe066;
   margin: 20px 0;
-  text-shadow: 0 0 4px #000, 0 0 2px #d4af3755;
-  animation: fadeInUp 0.6s ease-out forwards;
+  text-shadow: 0 0 6px #000, 0 0 2px #feda4a55;
 }
 
 .close-modal {
@@ -408,14 +267,12 @@ section {
   top: 18px;
   right: 28px;
   font-size: 2.5em;
-  color: #d4af37;
+  color: #feda4a;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.2s;
 }
-
 .close-modal:hover {
-  transform: rotate(90deg) scale(1.1);
-  color: #e6c547;
+  color: #fff;
 }
 
 #modal-details,
@@ -424,7 +281,7 @@ section {
   line-height: 2;
   color: #fffbe6;
   margin: 24px 0 0 0;
-  text-shadow: 0 0 4px #000, 0 0 3px #d4af3755;
+  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -433,18 +290,17 @@ section {
 #modal-details ul {
   font-size: 1.2em;
   margin: 18px 0 0 0;
-  color: #e6c547;
+  color: #ffe066;
   text-align: left;
   display: inline-block;
-  text-shadow: 0 0 4px #000, 0 0 2px #d4af3755;
-  animation: fadeInUp 0.6s ease-out forwards;
+  text-shadow: 0 0 6px #000, 0 0 2px #feda4a55;
 }
 
 .modal-content li,
 #modal-details li {
   margin-bottom: 10px;
   font-size: 0.7em;
-  color: #e6c547;
+  color: #ffe066;
 }
 
 /* fin du projects */
@@ -465,11 +321,11 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e6c547;
+  color: #ffff66;
   font-size: 2.8em;
   margin-bottom: 40px;
   letter-spacing: 2.5px;
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
+  text-shadow: 0 0 14px #feda4a, 0 0 24px #000;
   background: transparent;
   border: none;
   position: relative;
@@ -482,20 +338,20 @@ section {
   content: "";
   flex: 1 1 0;
   height: 3px;
-  background: #d4af37;
-  box-shadow: 0 0 8px #d4af3788;
+  background: #feda4a;
+  box-shadow: 0 0 8px #feda4a88;
   margin: 0 18px;
   border-radius: 2px;
 }
 
 .about-container {
-  border: 2.5px solid #d4af37;
+  border: 2.5px solid #feda4a;
   border-radius: 22px;
-  box-shadow: 0 0 32px #d4af3733, 0 0 120px #000 inset;
+  box-shadow: 0 0 32px #feda4a33, 0 0 120px #000 inset;
   padding: 48px 32px 36px 32px;
   max-width: 950px;
   margin: 0 auto;
-  color: #d4af37;
+  color: #feda4a;
   text-align: center;
   transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s;
 }
@@ -510,7 +366,7 @@ section {
 }
 
 .about-container:hover, .about-container:focus-within {
-  box-shadow: 0 0 8px #d4af3766, 0 0 16px #0004 !important;
+  box-shadow: 0 0 24px #feda4a, 0 0 80px #000 inset;
   background-color: #111;
   transform: translateY(-5px) scale(1.03);
 }
@@ -527,15 +383,15 @@ section {
   transition: opacity 0.4s;
 }
 .about-page h3 {
-  color: #e6c547;
+  color: #feda4a;
   font-size: 1.5em;
   margin-bottom: 12px;
-  text-shadow: 0 0 4px #000, 0 0 3px #d4af3755;
+  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
 }
 .about-page p {
   font-size: 1.4em; 
-  color: #f0d675;
-  text-shadow: 0 0 4px #000, 0 0 3px #d4af3755;
+  color: #ffe57f;
+  text-shadow: 0 0 8px #000, 0 0 3px #feda4a55;
   line-height: 2;
   margin-bottom: 0;
 }
@@ -545,16 +401,16 @@ section {
 
 @keyframes yellow-glow {
   0% {
-    box-shadow: 0 0 18px #d4af37, 0 0 40px #000 inset, 0 0 0px #fff700;
-    border-color: #d4af37;
+    box-shadow: 0 0 18px #feda4a, 0 0 40px #000 inset, 0 0 0px #fff700;
+    border-color: #feda4a;
   }
   50% {
     box-shadow: 0 0 36px #fff700cc, 0 0 60px #000 inset, 0 0 16px #fff700;
     border-color: #fff700;
   }
   100% {
-    box-shadow: 0 0 18px #d4af37, 0 0 40px #000 inset, 0 0 0px #fff700;
-    border-color: #d4af37;
+    box-shadow: 0 0 18px #feda4a, 0 0 40px #000 inset, 0 0 0px #fff700;
+    border-color: #feda4a;
   }
 }
 
@@ -651,15 +507,13 @@ section {
 /* --- NAVBAR STYLES --- */
 .navbar {
   width: 100%;
-  background: rgba(20, 20, 30, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1.5px solid #d4af3733;
-  box-shadow: 0 1px 6px #0006;
-  color: #d4af37;
+  background: #111;
+  color: #feda4a;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 2px 12px #000a;
 }
 .navbar-container {
   max-width: 1200px;
@@ -673,9 +527,8 @@ section {
   font-family: 'Pathway Gothic One', Arial, sans-serif;
   font-size: 2em;
   font-weight: bold;
-  color: #d4af37;
+  color: #feda4a;
   letter-spacing: 2px;
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
 }
 .navbar-menu {
   list-style: none;
@@ -685,27 +538,14 @@ section {
   padding: 0;
 }
 .navbar-menu li a {
-  color: #d4af37;
+  color: #feda4a;
   text-decoration: none;
   font-size: 1.1em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  padding: 8px 16px;
-  border-radius: 6px;
-  position: relative;
+  transition: color 0.2s;
 }
-.navbar-menu li a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translateX(-50%);
-}
-.navbar-menu li a:hover::after {
-  width: 100%;
+.navbar-menu li a:hover,
+.navbar-menu li a:focus {
+  color: #ffe066;
 }
 .navbar-toggle {
   display: none;
@@ -717,7 +557,7 @@ section {
 .navbar-toggle-icon {
   width: 28px;
   height: 3px;
-  background: #d4af37;
+  background: #feda4a;
   display: block;
   position: relative;
 }
@@ -727,7 +567,7 @@ section {
   position: absolute;
   width: 28px;
   height: 3px;
-  background: #d4af37;
+  background: #feda4a;
   left: 0;
   transition: 0.3s;
 }
@@ -756,129 +596,6 @@ section {
   }
 }
 /* --- END NAVBAR STYLES --- */
-
-/* Lower glow on text and box shadows */
-h2, .star-wars, .project-card, .about-container, .about-photo, .navbar, .navbar-logo, .contact-container {
-  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
-  box-shadow: 0 1px 4px #0004 !important;
-}
-
-.project-card:hover, .project-card:focus {
-  box-shadow: 0 0 8px #d4af3766, 0 0 16px #0004 !important;
-}
-
-.github-link, .github-link:hover {
-  box-shadow: 0 1px 3px #0004 !important;
-}
-
-.about-photo {
-  box-shadow: 0 1.5px 6px #d4af3722, 0 1px 4px #0004 !important;
-}
-
-/* --- SLIDE-IN ANIMATIONS --- */
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.slide-in-right {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.slide-in-bottom {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Active states for animations */
-.slide-in-left.active,
-.slide-in-right.active,
-.slide-in-bottom.active,
-.fade-in.active {
-  opacity: 1;
-  transform: translateX(0) translateY(0);
-}
-
-/* Stagger animation delays for project cards */
-.project-card:nth-child(1) { transition-delay: 0.1s; }
-.project-card:nth-child(2) { transition-delay: 0.2s; }
-.project-card:nth-child(3) { transition-delay: 0.3s; }
-.project-card:nth-child(4) { transition-delay: 0.4s; }
-
-/* Stagger animation delays for about pages */
-.about-page:nth-child(1) { transition-delay: 0.1s; }
-.about-page:nth-child(2) { transition-delay: 0.2s; }
-.about-page:nth-child(3) { transition-delay: 0.3s; }
-.about-page:nth-child(4) { transition-delay: 0.4s; }
-.about-page:nth-child(5) { transition-delay: 0.5s; }
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced focus states for accessibility */
-.project-card:focus,
-.github-link:focus,
-.navbar-menu li a:focus {
-  outline: 2px solid #d4af37;
-  outline-offset: 2px;
-}
-
-/* Loading animation for modal content */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.modal-content h3,
-.modal-content p,
-.modal-content ul {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.modal-content p {
-  animation-delay: 0.1s;
-}
-
-.modal-content ul {
-  animation-delay: 0.2s;
-}
-
-/* Mobile responsive modal */
-@media (max-width: 768px) {
-  .modal-content {
-    padding: 32px 24px;
-    width: 95vw;
-    max-height: 85vh;
-  }
-  
-  .modal-content h3,
-  #modal-title {
-    font-size: 1.8em;
-  }
-  
-  .modal-content p,
-  #modal-description {
-    font-size: 1.2em;
-  }
-}
-
 
 .contact-section {
   padding: 60px 0 40px 0;
@@ -957,4 +674,50 @@ html {
   .contact-container {
     padding: 18px 6vw;
   }
+}
+
+
+
+
+
+/* Animation fade-in gauche vers droite */
+.project-card.fade-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-card.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation fade-in droite vers gauche */
+.project-card.fade-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-card.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+h2, .star-wars, .project-card, .about-container, .about-photo, .navbar, .navbar-logo, .contact-container {
+  text-shadow: 0 0 4px #d4af3766, 0 0 6px #0004 !important;
+  box-shadow: 0 1px 4px #0004 !important;
+}
+
+.project-card:hover, .project-card:focus {
+  box-shadow: 0 0 8px #d4af3766, 0 0 16px #0004 !important;
+}
+
+.github-link, .github-link:hover {
+  box-shadow: 0 1px 3px #0004 !important;
+}
+
+.about-photo {
+  box-shadow: 0 1.5px 6px #d4af3722, 0 1px 4px #0004 !important;
 }
