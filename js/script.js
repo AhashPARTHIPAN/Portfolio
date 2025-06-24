@@ -146,3 +146,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projectCards = document.querySelectorAll(".project-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  projectCards.forEach((card, index) => {
+    // Alterne entre fade-in-left et fade-in-right
+    const direction = index % 2 === 0 ? 'fade-in-left' : 'fade-in-right';
+    card.classList.add(direction);
+    observer.observe(card);
+  });
+});

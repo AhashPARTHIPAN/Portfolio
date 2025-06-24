@@ -32,8 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = 'hidden';
       
       // Add a small delay to ensure smooth animation
+      modal.style.display = 'flex';
       setTimeout(() => {
-        modal.style.display = 'flex';
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
       }, 10);
     });
   });
@@ -43,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       modal.style.display = 'none';
       document.body.style.overflow = '';
-    }, 300); // Wait for animation to complete
+    }, 350); // même durée que le transition CSS
   }
 
   closeBtn.addEventListener('click', closeModal);
